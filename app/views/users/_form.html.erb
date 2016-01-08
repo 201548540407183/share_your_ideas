@@ -1,29 +1,45 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= form_for @user, html: {class: "form-horizontal"} do |f| %>
+  <fieldset>
+    <% @user.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <%#=legend for load page value%>
+
+    <legend><%= "#{page}" %></legend>
+
+    <div class="form-group">
+      <%= f.label :username, "Name", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.text_field :username, class: "form-control", required: true %>
+        <p class="help-block">You can choose a handsome name.</p>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.text_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="form-group">
+      <%= f.label :email, "Email", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.email_field :email, class: "form-control", required: true %>
+        <p class="help-block">Please input a valid email address</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password, "Password", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.password_field :password, class: "form-control", required: true %>
+        <p class="help-block">The length should be greater than six.</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, "Confirmation", class: "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.password_field :password_confirmation, class: "form-control", required: true %>
+        <p class="help-block">Please input the same password for confirmation.</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-5 col-sm-6 col-xs-3">
+        <%= f.submit "submit", class: "btn btn-success", title: "submit" %>
+      </div>
+    </div>
+</fieldset>
 <% end %>
