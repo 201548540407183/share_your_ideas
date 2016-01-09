@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  layout 'user'
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  layout 'user',           only: [:show]
 
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   # GET /users
   # GET /users.json
   def index
@@ -26,16 +26,21 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      flash[:success] = '恭喜您注册成功，现在您可畅游所有服务'
+      session[:user_id] = @user.id
+      render :show
+    else
+      render :new
     end
+    #respond_to do |format|
+      #if @user.save
+        #format.html { redirect_to @user, notice: 'User was successfully created.' }
+        #format.json { render :show, status: :created, location: @user }
+      #else
+        #format.html { render :new }
+        #format.json { render json: @user.errors, status: :unprocessable_entity }
+      #end
   end
 
   # PATCH/PUT /users/1

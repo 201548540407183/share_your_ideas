@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :articles
   resources :users
   match '/register',to: 'users#new',via: 'get'
 
