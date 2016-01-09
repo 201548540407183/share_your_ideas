@@ -15,5 +15,5 @@ class User < ActiveRecord::Base
    uniqueness: { case_sensitive: false, message: 'Your email has been registered.' }
  validates :password,    presence: { message: 'Please input your password.' },
    length: { minimum: 6, maximum: 20, message: 'The length of your password shuld greater than 6 and less than 20.' }, on: :create
-
+ has_secure_password
 end
