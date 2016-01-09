@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   match '/signup',to: 'users#new',via: 'get'
   match '/about',to: 'pages#about',via: 'get'
 
-  root 'pages#home'
+  root 'articles#index'
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
