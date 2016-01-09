@@ -3,8 +3,11 @@ source 'https://ruby.taobao.org'
 
 # self append
 # for execjs
-gem 'therubyracer'
+gem 'therubyracer',platforms: :ruby
 gem 'will_paginate','~>3.0.6'
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'font-awesome-rails'
+gem 'bootstrap-will_paginate', '0.0.10'
 # --------------------------------------------------------
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

@@ -3,7 +3,9 @@ class User < ActiveRecord::Base
     #t.string   "username",   limit: 20,  null: false
     #t.string   "password",   limit: 255, null: false
     #t.string   "email",      limit: 50,  null: false
-  #
+ #specify a one to many association
+ has_many :articles
+
  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
  before_save { self.email = email.downcase }
 
