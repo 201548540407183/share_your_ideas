@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
 
   match '/register',to: 'users#new',via: 'get'
+  match '/about',to: 'pages#about',via: 'get'
   root 'pages#home'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

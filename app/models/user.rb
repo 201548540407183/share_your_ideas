@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
    format: { with: VALID_EMAIL_REGEX, message: 'Your email has a wrong format.' },
    uniqueness: { case_sensitive: false, message: 'Your email has been registered.' }
  validates :password,    presence: { message: 'Please input your password.' },
-   confirmation: { message: 'The passwords are not same' },
    length: { minimum: 6, maximum: 20, message: 'The length of your password shuld greater than 6 and less than 20.' }, on: :create
 
 end

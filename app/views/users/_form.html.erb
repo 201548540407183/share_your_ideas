@@ -1,45 +1,33 @@
-<%= form_for @user, html: {class: "form-horizontal"} do |f| %>
-  <fieldset>
-    <% @user.errors.full_messages.each do |message| %>
-      <p><%= message %></p>
-    <% end %>
+<%= render 'shared/errors', obj: @user %>
 
-    <%#=legend for load page value%>
+<div class="container">
+  <div class="row">
+  <%= form_for(@user, :html => {class: "row centered-form", role: "form"}) do |f| %>
+        <div class="row centered-form">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+              <h4><%= f.submit(@user.new_record? ? "User Sign Up" : "User Update", id: "links", disabled: true) %></h4>
+			 			</div>
+			 			<div class="panel-body">
+			    		<form role="form">
+			    					<div class="form-group">
+                      <%= f.text_field :username, class: "form-control input-sm",
+placeholder: "Enter username", autofocus: true %>
+			    					</div>
+			    			<div class="form-group">
+                  <%= f.email_field :email, class: "form-control input-sm", placeholder: "Enter email" %>
+			    			</div>
+			    					<div class="form-group">
+                      <%= f.password_field :password, class: "form-control input-sm", placeholder: "Enter password" %>
+			    					</div>
+                <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-info btn-block', id: "links", class: 'btn btn-primary btn-sm') %>
+			    		</form>
+			    	</div>
+	    		</div>
+    		</div>
+    	</div>
+  <% end %>
+  </div>
+  </div>
 
-    <legend><%= "#{page}" %></legend>
-
-    <div class="form-group">
-      <%= f.label :username, "Name", class: "col-sm-2 control-label" %>
-      <div class="col-sm-5">
-        <%= f.text_field :username, class: "form-control", required: true %>
-        <p class="help-block">You can choose a handsome name.</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :email, "Email", class: "col-sm-2 control-label" %>
-      <div class="col-sm-5">
-        <%= f.email_field :email, class: "form-control", required: true %>
-        <p class="help-block">Please input a valid email address</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :password, "Password", class: "col-sm-2 control-label" %>
-      <div class="col-sm-5">
-        <%= f.password_field :password, class: "form-control", required: true %>
-        <p class="help-block">The length should be greater than six.</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation, "Confirmation", class: "col-sm-2 control-label" %>
-      <div class="col-sm-5">
-        <%= f.password_field :password_confirmation, class: "form-control", required: true %>
-        <p class="help-block">Please input the same password for confirmation.</p>
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-5 col-sm-6 col-xs-3">
-        <%= f.submit "submit", class: "btn btn-success", title: "submit" %>
-      </div>
-    </div>
-</fieldset>
-<% end %>
