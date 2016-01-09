@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   resources :articles
-  resources :users
+  resources :users,except: [:new]
 
-  match '/register',to: 'users#new',via: 'get'
+  match '/signup',to: 'users#new',via: 'get'
   match '/about',to: 'pages#about',via: 'get'
+
   root 'pages#home'
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

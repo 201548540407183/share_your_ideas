@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/navigation' %>
+<%= link_to "Show", "#", class: "navbar-brand", id: "symbol" %>
+<%= render "layouts/messages" %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<div class="row">
+  <div class="well col-xs-7 col-xs-offset-2">
+    <div class="well well-lg">
+      <div class="well col-xs-5 col-xs-offset-5">
+      <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
+      </div>
+  <div class="article-title">
+    <a><%= @article.title %></a>
+  </div>
+        <div class="article-info">
+            <p><h6>Created On: <%= @article.created_at.strftime("%b %d, %Y") %> By: <%= @article.user.username if @article.user =%></h6></p>
+         </div>
+    <div class="article-body">
+        <%= simple_format(@article.description) %>
+      <div class="article-actions">
+  <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary", id: "links" %>
+  <%= link_to "Delete this article", article_path(@article), method: :delete,
+                                          data: { confirm: "Are you sure you want to delete the article?"},
+                                          class: "btn btn-xs btn-danger",
+                                          id: "links" %>
+  <%= link_to "View all articles", articles_path, class: "btn btn-xs btn-success", id: "links"%>
+  </div>
+</div>
+</div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @article.description %>
-</p>
 
-<p>
-  <strong>Created at:</strong>
-  <%= @article.created_at %>
-</p>
 
-<p>
-  <strong>Update at:</strong>
-  <%= @article.update_at %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @article.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>

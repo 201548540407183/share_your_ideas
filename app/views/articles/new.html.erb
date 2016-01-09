@@ -1,5 +1,4 @@
-<h1>New Article</h1>
-
+<%= render 'layouts/navigation' %>
+<%= link_to "New Article", "#", class: "navbar-brand", id: "symbol" %>
+<%= render "layouts/messages" %>
 <%= render 'form' %>
-
-<%= link_to 'Back', articles_path %>

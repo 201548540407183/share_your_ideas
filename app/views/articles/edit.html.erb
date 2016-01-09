@@ -1,6 +1,4 @@
-<h1>Editing Article</h1>
-
+<%= render 'layouts/navigation' %>
+<%= link_to "Edit Article", "#", class: "navbar-brand", id: "symbol" %>
+<%= render "layouts/messages" %>
 <%= render 'form' %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>

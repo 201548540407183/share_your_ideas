@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/navigation' %>
+<%= render "layouts/messages" %>
+<div class="well">
+  <div class="row">
+    <div class="col-xs-2 col-xs-offset-2">
+      <%= gravatar_for @user, size: 80 %>
+    </div>
+    <div class="col-xs-4 col-xs-offset-1">
+      <h2><%= @user.username %>'s articles</h2>
+    </div>
+  </div>
+  </div>
+<%= render 'articles/article', obj: @user_articles %>
+<div class="well col-xs-7 col-xs-offset-4">
+  <%= will_paginate @user_articles %>
+</div>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>

@@ -1,31 +1,21 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/navigation' %>
+<%= link_to "Users\rs", "#", class: "navbar-brand", id: "symbol" %>
 
-<h1>Listing Users</h1>
+<% @users.each do |user| %>
+ <div class="row">
+    <div class="well col-xs-5 col-xs-offset-5">
+        <%= link_to gravatar_for(user), user_path(user) %></br></br>
+        <div class="user-info">
+         <small><%= link_to user.username, user_path(user) %></small> - <small><%= pluralize(user.articles.count, "article") if user.articles %></small>
+        </div>
+    </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>Password</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= render 'articles/article', obj: user.articles %>
+<hr>
+<% end %>
+<div class="well col-xs-7 col-xs-offset-4">
+  <%= will_paginate %>
+</div>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.username %></td>
-        <td><%= user.password %></td>
-        <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
