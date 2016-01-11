@@ -1,15 +1,16 @@
 <%= render 'layouts/navigation' %>
-<%= link_to "Users\rs", "#", class: "navbar-brand", id: "symbol" %>
+<%= link_to "Users", "#", class: "navbar-brand", id: "symbol" %>
 
 <% @users.each do |user| %>
  <div class="row">
     <div class="well col-xs-5 col-xs-offset-5">
         <%= link_to gravatar_for(user), user_path(user) %></br></br>
-        <div class="user-info">
-         <small><%= link_to user.username, user_path(user) %></small> - <small><%= pluralize(user.articles.count, "article") if user.articles %></small>
-        </div>
     </div>
-</div>
+    <div align="center" class="user-info2">
+         <small><%= link_to user.username, user_path(user) %></small> - <small><%= pluralize(user.articles.count, "article") if user.articles %></small>
+     </div>
+ </div>
+
 
 <%= render 'articles/article', obj: user.articles %>
 <hr>

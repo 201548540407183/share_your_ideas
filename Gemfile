@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-#source 'https://ruby.taobao.org'
+#source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 # self append
 # for execjs
@@ -12,6 +12,7 @@ gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bcrypt', '~> 3.1.7'
 #https://github.com/volmer/bootsy.git
 gem 'bootsy', '~> 2.2', '>= 2.2.1'
+gem "iconv", "~> 1.0.3"
 # --------------------------------------------------------
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
