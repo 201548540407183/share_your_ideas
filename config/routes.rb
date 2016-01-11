@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users,except: [:new]
 
   match '/signup',to: 'users#new',via: 'get'
-  match '/list', to: 'articles#list',via: 'get'
+  match '/list/:id', to: 'articles#list',via: 'get',as: 'list'
   #match '/about',to: 'pages#about',via: 'get'
 
   root 'articles#index'
