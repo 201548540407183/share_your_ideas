@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  include Bootsy::Container
   #specify a one to one association
   belongs_to :user
   validates  :title, presence: true, length: { minimum: 3, maximum: 50 }

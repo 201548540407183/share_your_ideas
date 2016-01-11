@@ -9,8 +9,8 @@
             <p>Posted On: <%= article.created_at.strftime("%b %d, %Y") %>  by <%= article.user.username if article.user =%>, Updated On: <%= article.updated_at.strftime("%b %d, %Y") %> by <%= article.user.username if article.user =%> </p>
          </div>
           <div class="article-body">
-            <%= simple_format truncate(article.description, :ommision => "... Read More", :length => 1000, separator: " ") %>
-            <%= link_to "Continue Reading", article_path(article), class: "btn btn-xs btn-primary", id: "continue" %>
+            <%= simple_format truncate(strip_tags(article.description),:ommision => "... Read More", :length => 1000, separator: " ") %>
+            <%= link_to "Continue Reading", article_path(article), class: "btn btn-xs btn-primary", id: "continue"%>
           </div>
           <div class="article-actions">
             <%= link_to "Edit this article", edit_article_path(article), class: "btn btn-xs btn-primary", id: "links" %>

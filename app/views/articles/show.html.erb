@@ -12,10 +12,10 @@
     <a><%= @article.title %></a>
   </div>
         <div class="article-info">
-            <p><h6>Created On: <%= @article.created_at.strftime("%b %d, %Y") %> By: <%= @article.user.username if @article.user =%></h6></p>
+            <p><h6>Created On: <%= @article.created_at.strftime("%b %d, %Y") %> By: <%=link_to @article.user.username, user_path(@article.user), id: "name" %></h6></p>
          </div>
     <div class="article-body">
-        <%= simple_format(@article.description) %>
+        <%= simple_format(@article.description)%>
       <div class="article-actions">
   <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-xs btn-primary", id: "links" %>
   <%= link_to "Delete this article", article_path(@article), method: :delete,
@@ -27,6 +27,8 @@
 </div>
 </div>
 </div>
+
+
 
 
 

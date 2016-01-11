@@ -10,6 +10,8 @@ gem 'font-awesome-rails'
 gem 'bootstrap-will_paginate', '0.0.10'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+#https://github.com/volmer/bootsy.git
+gem 'bootsy', '~> 2.2', '>= 2.2.1'
 # --------------------------------------------------------
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'

@@ -4,6 +4,12 @@ $navbar-default-bg: #000000;
 @import "bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Lobster+Two);
 
+
+/* body {
+  padding-bottom: 100px;
+} */
+
+
 .navbar-nav {
     float: left;
     margin: 0;
@@ -47,6 +53,11 @@ $navbar-default-bg: #000000;
 
 a{
   color:#d9edf7;
+}
+
+a:hover, a:focus {
+    color: #23527c;
+    text-decoration: initial;
 }
 
 .col-xs-offset-3 {
@@ -117,7 +128,7 @@ a{
 }
 
 .jumbotron {
-  background-image: asset-url('background');
+  background-image: asset-url('photo-snow.jpeg');
   background-size: cover;
   height: 740px;
   margin-bottom: 0px;
@@ -173,6 +184,17 @@ h1{
   background-color: #fff;
   color: #e4533d;
   border: #fff;
+}
+
+#name{
+  color: black;
+  font-style: bold;
+}
+
+#name:hover {
+  font-style: bold;
+  color: black;
+  background-color: #fff;
 }
 
 .footer{
@@ -261,6 +283,7 @@ width: 50px;
 
 .well {
     min-height: 20px;
+/*     padding: 25px 250px 75px 250px; */
     padding: 19px;
     margin-bottom: 0px;
     background-color: rgba(0, 0, 0, 0.0001);
@@ -376,6 +399,22 @@ width: 50px;
   }
 }
 
+.user-info2 {
+    color: #000;
+    font-family: sans-serif;
+    margin: 0 125px 0 0;
+    font-size: 1em;
+    line-height: 1em;
+   a {
+   color: #000;
+   text-decoration: none;
+   }
+   a:hover {
+   color: #e4533d;
+   text-decoration: none;
+  }
+}
+
 .pagination {
     display: inline-block;
     padding-left: 0;
@@ -401,4 +440,10 @@ width: 50px;
     background-color: #fff;
     border: 1px solid #ddd;
     margin-left: -1px;
+}
+
+.btn-default {
+    color: #000000;
+    background-color: rgba(255, 253, 253, 0.5);
+    border-color: #ccc;
 }

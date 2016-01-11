@@ -25,9 +25,9 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-    @article.user = User.first #temperary creation of article
+    @article.user = current_user
     if @article.save
-      flash[:success] = "Article was successfully created."
+      flash[:success] = "Article has been successfully created."
       redirect_to article_path(@article)
     else
       render 'new'
@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     if @article.update(article_params)
-      flash[:success] = "Article was successfully updated."
+      flash[:success] = "Article has been successfully updated."
       redirect_to article_path(@article)
     else
       render 'edit'
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
     @article.destroy
-    flash[:success] = "Article was successfully deleted"
+    flash[:success] = "Article has been successfully deleted."
     redirect_to articles_path
   end
 
@@ -61,6 +61,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :description)
+      params.require(:article).permit(:title, :description, :bootsy_image_gallery_id)
     end
 end

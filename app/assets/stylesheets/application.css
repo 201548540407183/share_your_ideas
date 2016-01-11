@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootsy
  */
 body {
   background-image: url("background.jpg");
