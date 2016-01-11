@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :require_user,only: [:new, :create, :edit, :destroy]
-  before_action :user_right,only: [:edit,:edit,:destroy]
+  before_action :set_article, only: [:show ,:edit, :update, :destroy]
+  before_action :require_user,only: [:new, :list, :create, :edit, :destroy]
+  before_action :user_right,only: [:edit,:destroy]
 
   # GET /articles
   # GET /articles.json
@@ -12,6 +12,11 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+  end
+
+  def list
+    @user = User.find_by(id: session[:user_id])
+    @articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /articles/new

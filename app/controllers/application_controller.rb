@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def current_user_name
+    if logged_in?
+      user = User.find_by(id: session[:user_id])
+      return user.username
+    end
+  end
   def require_user
     if !logged_in?
       flash[:danger] = "You must be sign in to perform that action."

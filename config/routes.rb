@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   resources :users,except: [:new]
 
   match '/signup',to: 'users#new',via: 'get'
+  match '/list', to: 'articles#list',via: 'get'
   #match '/about',to: 'pages#about',via: 'get'
 
   root 'articles#index'
-
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
